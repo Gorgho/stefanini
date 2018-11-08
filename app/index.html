@@ -1,0 +1,60 @@
+<html ng-app="pokemonApp">
+    <head>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../node_modules/popper.js/dist/popper-utils.min.js"></script>
+    
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="js/controllers/pokemon.controller.js"></script>
+    </head>
+    <body ng-controller="pokemonController">
+        <div class="container">
+            <div ng-show="!acaoCadastrar" class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <th class="tCenter">#</th>
+                        <th class="tLeft">Nome</th>
+                        <th class="tCenter">Tipo</th>
+                        <th class="tRight">Ação</th>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="pokemon in listaPokemons track by $index">
+                            <td class="tCenter">{{pokemon.id}}</td>
+                            <td class="tLeft">{{pokemon.nome}}</td>
+                            <td class="tCenter">{{pokemon.tipo.descricao}}</td>
+                            <td class="tRight">
+                                <button class="btn btn-danger" ng-click="excluir($index)">X</button>
+                                <button class="btn btn-success" ng-click="editar(pokemon)">✏️</button>
+                            </td>
+                        </tr>
+                        <tr ng-show="!listaPokemons.length && !acaoCadastrar" class="tCenter">
+                            <td colspan="4">
+                                Nenhum Pokemon cadastrado!
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-outline-primary" ng-click="acaoCadastrar = true">[+] Novo Pokemon</button>
+            </div>
+            <div class="row" ng-show="acaoCadastrar">
+                <form name="formCadastrar" ng-submit="inserir(pokemon)">
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <input type="text" class="form-control" ng-required="true" ng-model="pokemon.nome">
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo:</label>
+                        <select class="form-control" ng-model="pokemon.tipo" ng-required="true"
+                            ng-options="tipo as tipo.descricao for tipo in listaTipos track by tipo.codigo">
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+            
+                    <button class="btn btn-primary" ng-disabled="formCadastrar.$invalid" type="submit">Inserir</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
