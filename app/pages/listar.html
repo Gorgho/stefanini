@@ -1,4 +1,4 @@
-<div ng-show="!acaoCadastrar" class="row">
+<div class="row" ng-controller="listarPokemonController as vm">
         <table class="table table-striped">
             <thead>
                 <th class="tCenter">#</th>
@@ -7,7 +7,7 @@
                 <th class="tRight">Ação</th>
             </thead>
             <tbody>
-                <tr ng-repeat="pokemon in listaPokemons track by $index">
+                <tr ng-repeat="pokemon in service.listaPokemons track by $index">
                     <td class="tCenter">{{pokemon.id}}</td>
                     <td class="tLeft">{{pokemon.nome}}</td>
                     <td class="tCenter">{{pokemon.tipo.descricao}}</td>
@@ -16,12 +16,12 @@
                         <button class="btn btn-success" ng-click="editar(pokemon)">✏️</button>
                     </td>
                 </tr>
-                <tr ng-show="!listaPokemons.length && !acaoCadastrar" class="tCenter">
+                <tr ng-show="!service.listaPokemons.length && !acaoCadastrar" class="tCenter">
                     <td colspan="4">
                         Nenhum Pokemon cadastrado!
                     </td>
                 </tr>
             </tbody>
         </table>
-        <button class="btn btn-outline-primary" ng-click="acaoCadastrar = true">[+] Novo Pokemon</button>
+        <button class="btn btn-outline-primary" ng-click="irTelaCadastrar()">[+] Novo Pokemon</button>
     </div>

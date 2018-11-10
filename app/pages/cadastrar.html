@@ -1,4 +1,4 @@
-<div class="row" ng-show="acaoCadastrar">
+<div class="row">
     <form name="formCadastrar" ng-submit="inserir(pokemon)">
         <div class="form-group">
             <label>Nome:</label>
@@ -7,7 +7,7 @@
         <div class="form-group">
             <label>Tipo:</label>
             <select class="form-control" ng-model="pokemon.tipo" ng-required="true"
-                ng-options="tipo as tipo.descricao for tipo in listaTipos track by tipo.codigo">
+                ng-options="tipo as tipo.descricao for tipo in service.listaTipos track by tipo.codigo">
                 <option value="">Selecione</option>
             </select>
         </div>
