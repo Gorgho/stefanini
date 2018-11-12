@@ -5,9 +5,10 @@ angular.module("pokemonApp")
 
     function pokemonService() {
         var _pokemon = null;
+        var _contadorID = 1;
         
         var _listaPokemons = 
-            [{nome: "Pikachu", tipo: {codigo: 1, descricao: "Raio"}}];
+            [{id: 1, nome: "Pikachu", tipo: {codigo: 1, descricao: "Raio"}}];
         
         var _listaTipos = [
             {codigo: 1, descricao: "Raio"},
@@ -16,6 +17,7 @@ angular.module("pokemonApp")
         ];
 
         return {
+            contadorId: _contadorID,
             listaPokemons: _listaPokemons,
             listaTipos: _listaTipos,
             pokemon: _pokemon

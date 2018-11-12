@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>Seleção de Pokemons</h1>
+    <div class="form-group">
+        <label>Selecione o treinador:</label>
+        <select class="form-control" ng-options="item as item.nome for item in treinService.listaTreinador" ng-model="treinador">
+            <option value="">Selecione</option>
+        </select>
+    </div>
+    <div ng-show="treinador">
+        <h2 class="tcenter">{{treinador.nome}}</h2>
+        <div class="container">
+            <table class="table table-light">
+                <thead class="thead-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="selecionado in treinService.listaPokemonTreinador">
+                        <td>{{selecionado.id}}</td>
+                        <td>{{selecionado.nome}}</td>
+                        <td>{{selecionado.tipo.descricao}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <table class="table table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Selecionar</th>
+                        <th>Pokemon</th>
+                        <th>Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pokemon in listaPokemon" ng-dblclick="teste()">
+                        <td>{{pokemon.nome}}</td>
+                        <td>{{pokemon.tipo.descricao}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

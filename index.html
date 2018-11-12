@@ -14,8 +14,13 @@
         <link rel="stylesheet" href="./app/css/style.css">       
         <script src="./app/js/app.js"></script>
         <script src="./app/js/services/pokemon.service.js"></script>
+        <script src="./app/js/services/treinador.service.js"></script>
         <script src="./app/js/controllers/listarPokemon.controller.js"></script>
         <script src="./app/js/controllers/cadastrarPokemon.controller.js"></script>
+        <script src="./app/js/controllers/login.controller.js"></script>
+        <script src="./app/js/controllers/listarTreinador.controller.js"></script>
+        <script src="./app/js/controllers/cadastrarTreinador.controller.js"></script>
+        <script src="./app/js/controllers/selecao.controller.js"></script>
         
         
         <!-- Produção -->
@@ -26,6 +31,31 @@
  
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" ng-show="usuario.logado">
+            <a class="navbar-brand">Pokemon</a>
+            <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="my-nav" class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#!/listarPokemon">Listar Pokemon</a>
+                    </li>
+                    <li class="nav-item active">
+                            <a class="nav-link" href="#!/cadastrarPokemon">Cadastrar Pokemon</a>
+                    </li>
+                    <li class="nav-item active">
+                            <a class="nav-link" href="#!/listarTreinador">Listar Treinador</a>
+                    </li>
+                    <li class="nav-item active">
+                            <a class="nav-link" href="#!/cadastrarTreinador">Cadastrar Treinador</a>
+                    </li>
+                    <li class="nav-item active">
+                            <a class="nav-link" href="#!/selecionarPokemon">Selecionar Pokemon</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
         <div class="container">
             <ng-view></ng-view>
         </div>

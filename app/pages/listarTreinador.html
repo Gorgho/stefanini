@@ -1,0 +1,27 @@
+<div class="row">
+        <table class="table table-striped">
+            <thead>
+                <th class="tCenter">#</th>
+                <th class="tLeft">Nome</th>
+                <th class="tCenter">Cidade</th>
+                <th class="tRight">Ação</th>
+            </thead>
+            <tbody>
+                <tr ng-repeat="treinador in service.listaTreinador track by $index">
+                    <td class="tCenter">{{treinador.id}}</td>
+                    <td class="tLeft">{{treinador.nome}}</td>
+                    <td class="tCenter">{{treinador.cidade}}</td>
+                    <td class="tRight">
+                        <button class="btn btn-danger" ng-click="excluir($index)">X</button>
+                        <button class="btn btn-success" ng-click="editar(treinador)">✏️</button>
+                    </td>
+                </tr>
+                <tr ng-show="!service.listaTreinador.length" class="tCenter">
+                    <td colspan="4">
+                        Nenhum Treiandor cadastrado!
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-outline-primary" ng-click="irCadastrar()">[+] Novo treinador</button>
+    </div>

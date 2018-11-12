@@ -1,1 +1,13 @@
-tela login
+<div class="container">
+  <div class="alert alert-warning" ng-show="alerta">Login Inválido</div>
+  <div class="form-group">
+    <label>Usuário</label>
+    <input class="form-control" type="text" ng-model="usuario.login" />
+  </div>
+  <div class="form-group">
+    <label>Senha</label>
+    <input class="form-control" type="password" ng-model="usuario.senha" />
+  </div>
+  <!-- <button class="btn btn-primary" type="button" ng-click="validarLogin(usuario.login, usuario.senha)">Entrar</button> -->
+  <button class="btn btn-primary" type="button" ng-click="validarLogin(usuario.login, usuario.senha)">Entrar</button>
+</div>

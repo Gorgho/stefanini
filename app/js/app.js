@@ -8,17 +8,31 @@ config.$inject = ["$routeProvider"];
 function config($routeProvider) {
     $routeProvider.
     when("/login", {
-        templateUrl: "/app/pages/login.html"
+        templateUrl: "/app/pages/login.html",
+        controller: "loginController"
     }).
-    when("/listar", {
-        templateUrl: "/app/pages/listar.html"
+    when("/listarPokemon", {
+        templateUrl: "/app/pages/listar.html",
+        controller: "listarPokemonController"
     }).
-    when("/cadastrar", {
+    when("/cadastrarPokemon", {
         templateUrl: "/app/pages/cadastrar.html",
         controller: "cadastrarPokemonController as vm"
+    }).
+    when("/listarTreinador", {
+        templateUrl: "/app/pages/listarTreinador.html",
+        controller: "listarTreinadorController"
+    }).
+    when("/cadastrarTreinador", {
+        templateUrl: "/app/pages/cadastrarTreinador.html",
+        controller: "cadastrarTreinadorController"
+    }).
+    when("/selecionarPokemon", {
+        templateUrl: "/app/pages/selecionarPokemon.html",
+        controller: "selecaoController"
     })
     .otherwise({
-        redirectTo: "/login"
+        redirectTo: "/listarPokemon"
     }); 
 
 }

@@ -7,7 +7,7 @@
             $scope.service = pokemonService;
 
             $scope.irTelaCadastrar = function() {
-                $location.path("/cadastrar");
+                $location.path("/cadastrarPokemon");
             };
 
             $scope.editar = function(pokemon) {
